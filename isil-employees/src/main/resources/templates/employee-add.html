@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Agregar Direcciones</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Agregar Direcciones</h3>
+
+    <div>
+
+        <form action="#" method="post"
+              th:object="${employee}"
+              th:action="@{/employee/save}"
+        >
+
+            <div class="form-group">
+                <label for="id">id</label>
+                <input type="number" class="class-controller" readonly
+                       id="id" placeholder="ingrese el numero de documento"
+                       th:field="*{emp_id}"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="name">name</label>
+                <input type="text" class="class-controller"
+                       id="name" placeholder="ingrese el nombre"
+                       th:field="*{name}"
+                >
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">
+                Agregar Direccion
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

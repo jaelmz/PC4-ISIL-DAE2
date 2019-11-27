@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>cities</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Agregar Direcciones</h3>
+    <div class="col-md-12">
+        <a th:href="@{/address/add}" class="btn btn-primary">Agregar Direcciones</a>
+    </div>
+
+    <div th:switch="address">
+        <div th:case="*">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">add_id</th>
+                    <th scope="col">country</th>
+                    <th scope="col">city</th>
+                    <th scope="col">street</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="a : ${address}">
+                    <th scope="row" th:text="${a.add_id}"></th>
+                    <td th:text="${a.country}"></td>
+                    <td th:text="${a.city}"></td>
+                    <td th:text="${a.street}"></td>
+
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <a th:href="@{/address/edit/{id}
+                                    (id=${a.add_id})}"
+                               class="btn btn-primary btn-sm">Edit</a>
+
+                            <a th:href="@{/address/delete/{id}
+                                (id=${a.add_id})}"
+                               class="btn btn-danger btn-sm">Delete</a>
+
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

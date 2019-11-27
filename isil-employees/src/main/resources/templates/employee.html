@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>cities</title>
+</head>
+<body>
+
+<div class="container">
+    <h3>Agregar Empleado</h3>
+    <div class="col-md-12">
+        <a th:href="@{/employee/add}" class="btn btn-primary">Agregar Empleados</a>
+    </div>
+
+    <div th:switch="employee">
+        <div th:case="*">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">emp_id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">addr_id</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="e : ${employee}">
+                    <th scope="row" th:text="${e.emp_id}"></th>
+                    <td th:text="${e.name}"></td>
+                    <td th:text="${e.addr_id}"></td>
+
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <a th:href="@{/employee/edit/{id}
+                                    (id=${e.emp_id})}"
+                               class="btn btn-primary btn-sm">Edit</a>
+
+                            <a th:href="@{/employee/delete/{id}
+                                (id=${e.emp_id})}"
+                               class="btn btn-danger btn-sm">Delete</a>
+
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
